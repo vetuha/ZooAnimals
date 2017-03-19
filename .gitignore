@@ -240,3 +240,21 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+
+*.js.map
+*.spec.js
+*.base.js
+*.module.js
+*.service.js
+*.controller.js
+*.directive.js
+*.config.js
+*.run.js
+*.types.js
+*.routes.js
+*.component.js
+*.model.js
+*.filter.js
+*.interface.js
+*.const.js

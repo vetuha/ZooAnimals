@@ -34,7 +34,8 @@ namespace Zoo_Animals_Client
                       "~/Scripts/ui-bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/zoojs").Include(
-                      "~/Areas/Zoo/App/*.js"));
+                      "~/Areas/Zoo/App/*.js",
+                      "~/Angular/*.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
