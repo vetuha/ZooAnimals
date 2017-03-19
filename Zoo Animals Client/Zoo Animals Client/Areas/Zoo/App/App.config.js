@@ -10,6 +10,15 @@
         var urlFormat = '/';
         $urlRouterProvider
             .otherwise(urlFormat);
+        $stateProvider
+            .state('home', {
+            url: '/',
+            views: {
+                'MainView': {
+                    template: '<fits-me-zoo-home-component></fits-me-zoo-home-component>'
+                }
+            },
+            params: {}
+        });
     }
 })();
-//# sourceMappingURL=App.config.js.map

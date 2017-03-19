@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('FitsMe')
+        .module('FitsMe.Common')
         .config(configFunction);
 
     configFunction.$inject = ['$provide'];

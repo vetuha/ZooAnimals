@@ -6,12 +6,13 @@
 
             // 3rd Party Modules
             'ui.router',
+            'ngTouch',
             'ngSanitize',
             'angularMoment',
 
             //Zoo Modules
-            'FitsMe',
-            'FitsMe.Directives',
-            'FitsMe.Components'
+            'FitsMe.Common'
+            //'FitsMe.Directives',
+            //'FitsMe.Components'
         ]);
 })();

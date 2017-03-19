@@ -45,4 +45,4 @@ let httpConfig = ($httpProvider: ng.IHttpProvider) => {
     $httpProvider.interceptors.push(ApiCallInterceptor.factory);
 };
 
-angular.module('FitsMe').config(httpConfig);
+angular.module('FitsMe.Common').config(httpConfig);

@@ -1,17 +1,13 @@
 var FitsMe;
 (function (FitsMe) {
-    var Zoo;
-    (function (Zoo) {
-        var Api;
-        (function (Api) {
-            'use strict';
-            var SpeciesDTO = (function () {
-                function SpeciesDTO() {
-                }
-                return SpeciesDTO;
-            }());
-            Api.SpeciesDTO = SpeciesDTO;
-        })(Api = Zoo.Api || (Zoo.Api = {}));
-    })(Zoo = FitsMe.Zoo || (FitsMe.Zoo = {}));
+    var Api;
+    (function (Api) {
+        'use strict';
+        var SpeciesDTO = (function () {
+            function SpeciesDTO() {
+            }
+            return SpeciesDTO;
+        }());
+        Api.SpeciesDTO = SpeciesDTO;
+    })(Api = FitsMe.Api || (FitsMe.Api = {}));
 })(FitsMe || (FitsMe = {}));
-//# sourceMappingURL=SpeciesDTO.js.map

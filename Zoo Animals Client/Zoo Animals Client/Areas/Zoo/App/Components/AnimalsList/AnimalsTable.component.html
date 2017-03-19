@@ -1,0 +1,22 @@
+﻿<div class="pg-animals-list table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th ng-repeat="column in ctrl.columns">
+                    <div>
+                        <fits-me-animals-order-component title="{{column.DisplayName}}"
+                                                       field="{{column.FieldName}}"
+                                                       order-by="ctrl.orderBy"
+                                                       items="ctrl.animals">
+                        </fits-me-animals-order-component>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="animal in ctrl.animals track by animal.Id">
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

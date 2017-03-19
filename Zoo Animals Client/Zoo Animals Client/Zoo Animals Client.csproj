@@ -184,6 +184,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Zoo\App\Components\AnimalsList\Animals.component.html" />
+    <Content Include="Areas\Zoo\App\Components\AnimalsList\AnimalsTable.component.html" />
+    <Content Include="Areas\Zoo\App\Components\Home.component.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
@@ -1060,6 +1063,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Angular\Common.config.ts" />
+    <TypeScriptCompile Include="Angular\Common.module.ts" />
     <TypeScriptCompile Include="Angular\Models\AnimalDTO.ts" />
     <TypeScriptCompile Include="Angular\Models\SpeciesDTO.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\App.config.ts" />
@@ -1067,6 +1071,13 @@
     <TypeScriptCompile Include="Areas\Zoo\App\App.module.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\App.run.ts" />
     <TypeScriptCompile Include="Angular\Interceptor.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\Animals.component.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\AnimalsTable.component.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\Order.component.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\Components.module.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\Home.component.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Services\Animals.service.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Services\Species.service.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />

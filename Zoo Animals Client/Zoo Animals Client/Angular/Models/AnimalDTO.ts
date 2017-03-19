@@ -1,4 +1,4 @@
-﻿module FitsMe.Zoo.Api {
+﻿module FitsMe.Api {
     'use strict';
 
     export class AnimalDTO {

@@ -26,16 +26,25 @@ namespace Zoo_Animals_Client
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-sanitize.js",
+                      "~/Scripts/angular-touch.js",
                       "~/Scripts/moment-with-locales.min.js",
                       "~/Scripts/angular-moment.min.js",
                       "~/Scripts/angular-ui-router.js",
                       "~/Scripts/lodash.js",
                       "~/Scripts/angular-ui-router.js",
-                      "~/Scripts/ui-bootstrap.min.js"));
+                      "~/Scripts/angular-ui/ui-bootstrap.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/zoojs").Include(
-                      "~/Areas/Zoo/App/*.js",
-                      "~/Angular/*.js"));
+            bundles.Add(new ScriptBundle("~/bundles/zoojs")
+                      .Include("~/Angular/Common.module.js")
+                      .Include("~/Angular/Common.config.js")
+                      .IncludeDirectory("~/Angular/Models", "*.js", false)
+                      .Include("~/Areas/Zoo/App/App.core.module.js")
+                      .Include("~/Areas/Zoo/App/App.module.js")
+                      .Include("~/Areas/Zoo/App/App.config.js")
+                      .Include("~/Areas/Zoo/App/App.run.js")
+                      .IncludeDirectory("~/Areas/Zoo/App/Components", "*.js", true)
+                      .IncludeDirectory("~/Areas/Zoo/App/Services", "*.js", true)
+                      .Include("~/Angular/Interceptor.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
