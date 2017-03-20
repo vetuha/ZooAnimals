@@ -10,7 +10,7 @@ namespace Zoo_Animals_Api.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "About";
 
             return View();
         }
