@@ -47,6 +47,7 @@
         public templateUrl: string;
 
         constructor() {
+            console.log("dfasdfasd");
             this.bindings = {
                 
             };

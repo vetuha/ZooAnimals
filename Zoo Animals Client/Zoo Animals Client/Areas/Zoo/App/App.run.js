@@ -15,4 +15,3 @@
         $log.debug('Angular Zoo Animals - SETUP COMPLETED');
     }
 })();
-//# sourceMappingURL=App.run.js.map

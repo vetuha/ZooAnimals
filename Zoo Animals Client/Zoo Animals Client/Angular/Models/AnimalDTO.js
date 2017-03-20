@@ -11,4 +11,3 @@ var FitsMe;
         Api.AnimalDTO = AnimalDTO;
     })(Api = FitsMe.Api || (FitsMe.Api = {}));
 })(FitsMe || (FitsMe = {}));
-//# sourceMappingURL=AnimalDTO.js.map

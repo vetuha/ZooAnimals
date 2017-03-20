@@ -46,4 +46,3 @@ var httpConfig = function ($httpProvider) {
     $httpProvider.interceptors.push(ApiCallInterceptor.factory);
 };
 angular.module('FitsMe.Common').config(httpConfig);
-//# sourceMappingURL=Interceptor.js.map

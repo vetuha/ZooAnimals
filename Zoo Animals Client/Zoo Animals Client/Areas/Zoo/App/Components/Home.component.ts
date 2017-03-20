@@ -14,7 +14,7 @@
 
             var ctrl: HomeController = this;
 
-            
+
         }
     }
 
@@ -29,7 +29,7 @@
             this.bindings = {
             };
 
-            this.controller = 'fitsMeZooHomeHomeController';
+            this.controller = 'fitsMeZooHomeController';
             this.controllerAs = 'ctrl';
             this.templateUrl = 'Areas/Zoo/App/Components/Home.component.html';
         }
@@ -38,5 +38,5 @@
     angular
         .module('FitsMe.Zoo.Components')
         .component('fitsMeZooHomeComponent', new HomeComponent())
-        .controller('fitsMeZooHomeHomeController', HomeController);
+        .controller('fitsMeZooHomeController', HomeController);
 } 
