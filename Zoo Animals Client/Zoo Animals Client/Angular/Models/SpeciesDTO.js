@@ -11,3 +11,4 @@ var FitsMe;
         Api.SpeciesDTO = SpeciesDTO;
     })(Api = FitsMe.Api || (FitsMe.Api = {}));
 })(FitsMe || (FitsMe = {}));
+//# sourceMappingURL=SpeciesDTO.js.map

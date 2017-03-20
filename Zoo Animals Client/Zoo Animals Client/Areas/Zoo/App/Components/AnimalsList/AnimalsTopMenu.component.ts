@@ -1,16 +1,14 @@
 ﻿module FitsMe.Zoo.Components {
     'use strict';
 
-    interface IAnimalsTableController {
+    interface IAnimalsTopMenuController {
 
     }
 
-    class AnimalsTableController implements IAnimalsTableController {
-        private orderBy: string = '';
-        private animals: FitsMe.Api.AnimalDTO[] = [];
-        private currentAnimals: FitsMe.Api.AnimalDTO[] = [];
-        private currentPage: number;
-        private avgAge: number;
+    class AnimalsTopMenuController implements IAnimalsTopMenuController {
+
+        public totalItems: number;
+        public currentPage: number;
 
         static $inject = ['$injector',
             '$scope',
@@ -27,14 +25,18 @@
             protected animalsService: FitsMe.Zoo.Components.IAnimalsService) {
 
             var ctrl = this;
-            
-            
-        }       
+
+
+        }
+
+        private changePage(): void {
+
+        }
 
     }
 
 
-    class AnimalsTableComponent implements ng.IComponentOptions {
+    class AnimalsTopMenuComponent implements ng.IComponentOptions {
 
         public bindings: any;
         public controller: any;
@@ -47,14 +49,14 @@
                 currentPage: '='
             };
 
-            this.controller = 'fitsMeAnimalsTableController';
+            this.controller = 'fitsMeAnimalsTopMenuController';
             this.controllerAs = 'ctrl';
-            this.templateUrl = 'Areas/Zoo/App/Components/AnimalsList/AnimalsTable.component.html';
+            this.templateUrl = 'Areas/Zoo/App/Components/AnimalsList/AnimalsTopMenu.component.html';
         }
     }
 
     angular
         .module('FitsMe.Zoo.Components')
-        .component('fitsMeAnimalsTableComponent', new AnimalsTableComponent())
-        .controller('fitsMeAnimalsTableController', AnimalsTableController);
+        .component('fitsMeAnimalsTopMenuComponent', new AnimalsTopMenuComponent())
+        .controller('fitsMeAnimalsTopMenuController', AnimalsTopMenuController);
 }

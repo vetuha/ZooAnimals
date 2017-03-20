@@ -258,3 +258,6 @@ ModelManifest.xml
 *.filter.js
 *.interface.js
 *.const.js
+
+Zoo Animals Client/Zoo Animals Client/Angular/**/*.js
+Zoo Animals Client/Zoo Animals Client/Angular/**/*.js.map
