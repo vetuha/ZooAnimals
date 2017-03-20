@@ -19,9 +19,6 @@
                     $log.debug(navInfo);
                 }
             });
-
-        $rootScope['appName'] = 'Zoo Animals'
-
         $log.debug('Angular Zoo Animals - SETUP COMPLETED');
 
     }

@@ -12,14 +12,14 @@
 
         static $inject = ['$injector',
             '$scope',
-            '$loading',
+            'usSpinnerService',
             '$q',
             '$uibModal',
             'fitsMeZooAnimalsService'];
 
         constructor(protected $injector: angular.auto.IInjectorService,
             $scope: angular.IRootScopeService,
-            private $loading: any,
+            private spinner: any,
             protected $q: angular.IQService,
             protected $uibModal: angular.ui.bootstrap.IModalService,
             protected animalsService: FitsMe.Zoo.Components.IAnimalsService) {
@@ -51,7 +51,7 @@
 
             this.controller = 'fitsMeAnimalsTopMenuController';
             this.controllerAs = 'ctrl';
-            this.templateUrl = 'Areas/Zoo/App/Components/AnimalsList/AnimalsTopMenu.component.html';
+            this.templateUrl = '/Areas/Zoo/App/Components/AnimalsList/AnimalsTopMenu.component.html';
         }
     }
 

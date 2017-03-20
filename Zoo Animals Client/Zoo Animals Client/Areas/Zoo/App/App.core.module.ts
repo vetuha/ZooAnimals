@@ -3,8 +3,6 @@
 
     angular
         .module('FitsMe.Zoo.Core', [
-
-            // 3rd Party Modules
             'ui.router',
             'ngTouch',
             'ngSanitize',

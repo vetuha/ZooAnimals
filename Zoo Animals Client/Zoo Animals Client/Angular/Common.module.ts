@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('FitsMe.Common', ['ngSanitize']);
+        .module('FitsMe.Common', []);
 })(); 

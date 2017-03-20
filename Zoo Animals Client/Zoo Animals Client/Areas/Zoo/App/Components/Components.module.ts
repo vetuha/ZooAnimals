@@ -6,6 +6,7 @@
             'FitsMe.Common',
             'ngTouch',
             'ngSanitize',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'angularSpinner'
         ]);
 })();

@@ -11,24 +11,27 @@
         private currentAnimals: FitsMe.Api.AnimalDTO[] = [];
         private currentPage: number;
         private avgAge: number;
+        private columns: TableColumns[] = [];
 
         static $inject = ['$injector',
             '$scope',
-            '$loading',
+            'usSpinnerService',
             '$q',
             '$uibModal',
-            'fitsMeZooAnimalsService'];
+            'fitsMeZooAnimalsService',
+            'fitsMeZooTableConfigurationService'];
 
         constructor(protected $injector: angular.auto.IInjectorService,
             $scope: angular.IRootScopeService,
-            private $loading: any,
+            private spinner: any,
             protected $q: angular.IQService,
             protected $uibModal: angular.ui.bootstrap.IModalService,
-            protected animalsService: FitsMe.Zoo.Components.IAnimalsService) {
+            protected animalsService: FitsMe.Zoo.Components.IAnimalsService,
+            protected tableConfigurationService: FitsMe.Zoo.Components.ITableConfigurationService) {
 
             var ctrl = this;
-            
-            
+
+            ctrl.columns = tableConfigurationService.getColumns();
         }       
 
     }
@@ -49,7 +52,7 @@
 
             this.controller = 'fitsMeAnimalsTableController';
             this.controllerAs = 'ctrl';
-            this.templateUrl = 'Areas/Zoo/App/Components/AnimalsList/AnimalsTable.component.html';
+            this.templateUrl = '/Areas/Zoo/App/Components/AnimalsList/AnimalsTable.component.html';
         }
     }
 

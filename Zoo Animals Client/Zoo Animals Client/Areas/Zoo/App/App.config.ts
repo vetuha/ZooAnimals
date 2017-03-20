@@ -15,7 +15,7 @@
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $logProvider: ng.ILogProvider): void {
                 
-        $logProvider.debugEnabled(false);        
+        $logProvider.debugEnabled(true);        
 
         var urlFormat: string = '/';
         
@@ -30,8 +30,6 @@
                     'MainView': {
                         template: '<fits-me-zoo-home-component></fits-me-zoo-home-component>'
                     }
-                },
-                params: {
                 }
             });
     }

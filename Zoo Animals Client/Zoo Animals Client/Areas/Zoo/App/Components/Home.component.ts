@@ -6,6 +6,7 @@
     }
 
     class HomeController implements IHomeController {
+        private homeSpinnerOptions: any = { radius: 30, width: 8, length: 16 };
 
         static $inject = ['$injector', '$scope'];
 
@@ -13,8 +14,6 @@
             $scope: angular.IRootScopeService) {
 
             var ctrl: HomeController = this;
-
-
         }
     }
 
@@ -31,7 +30,7 @@
 
             this.controller = 'fitsMeZooHomeController';
             this.controllerAs = 'ctrl';
-            this.templateUrl = 'Areas/Zoo/App/Components/Home.component.html';
+            this.templateUrl = '/Areas/Zoo/App/Components/Home.component.html';
         }
     }
 

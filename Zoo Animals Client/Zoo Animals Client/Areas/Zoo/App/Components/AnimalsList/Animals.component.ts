@@ -12,14 +12,14 @@
 
         static $inject = ['$injector',
             '$scope',
-            '$loading',
+            'usSpinnerService',
             '$q',
             '$uibModal',
             'fitsMeZooAnimalsService'];
 
         constructor(protected $injector: angular.auto.IInjectorService,
             $scope: angular.IRootScopeService,
-            private $loading: any,
+            private spinner: any,
             protected $q: angular.IQService,
             protected $uibModal: angular.ui.bootstrap.IModalService,
             protected animalsService: FitsMe.Zoo.Components.IAnimalsService) {
@@ -47,14 +47,13 @@
         public templateUrl: string;
 
         constructor() {
-            console.log("dfasdfasd");
             this.bindings = {
                 
             };
 
             this.controller = 'fitsMeAnimalsController';
             this.controllerAs = 'ctrl';
-            this.templateUrl = 'Areas/Zoo/App/Components/AnimalsList/AnimalsTable.component.html';
+            this.templateUrl = '/Areas/Zoo/App/Components/AnimalsList/Animals.component.html';
         }
     }
 

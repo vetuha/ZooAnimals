@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Zoo_Animals_Client
 {
@@ -31,8 +30,9 @@ namespace Zoo_Animals_Client
                       "~/Scripts/angular-moment.min.js",
                       "~/Scripts/angular-ui-router.js",
                       "~/Scripts/lodash.js",
-                      "~/Scripts/angular-ui-router.js",
-                      "~/Scripts/angular-ui/ui-bootstrap.min.js"));
+                      "~/Scripts/angular-spinner.min.js",
+                      "~/Scripts/spin.min.js",
+                      "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/zoojs")
                       .Include("~/Angular/Common.module.js")
@@ -40,9 +40,10 @@ namespace Zoo_Animals_Client
                       .IncludeDirectory("~/Angular/Models", "*.js", false)
                       .Include("~/Areas/Zoo/App/App.core.module.js")
                       .Include("~/Areas/Zoo/App/App.module.js")
-                      .Include("~/Areas/Zoo/App/App.config.js")
                       .Include("~/Areas/Zoo/App/App.run.js")
-                      .IncludeDirectory("~/Areas/Zoo/App/Components", "*.js", true)
+                      .Include("~/Areas/Zoo/App/App.config.js")
+                      .Include("~/Areas/Zoo/App/Components/Components.module.js")
+                      .IncludeDirectory("~/Areas/Zoo/App/Components", "*.component.js", true)
                       .IncludeDirectory("~/Areas/Zoo/App/Services", "*.js", true)
                       .Include("~/Angular/Interceptor.js"));
 
