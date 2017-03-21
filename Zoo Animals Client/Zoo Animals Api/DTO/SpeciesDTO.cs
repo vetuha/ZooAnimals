@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Runtime.Serialization;
 
 namespace Zoo_Animals_Api.DTO
 {
+    [DataContract]
     public class SpeciesDTO
     {
+        [DataMember]
         public int Id { get; set; }
-
+        [DataMember]
         public string Name { get; set; }
     }
 }

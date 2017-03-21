@@ -34,7 +34,7 @@ namespace Zoo_Animals_Api.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK);          
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpGet]
@@ -55,31 +55,31 @@ namespace Zoo_Animals_Api.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage GetAnimal(int id)
+        public HttpResponseMessage GetAnimal(int animalId)
         {
             try
             {
-                var animal = _zooService.GetAnimal(id);
+                var animal = _zooService.GetAnimal(animalId);
 
-                if(animal != null)
+                if (animal != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, animal);
                 }
-                
+
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Animal not found in the our zoo.");
             }
             catch (Exception)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
-            }            
+            }
         }
 
         [HttpPost]
-        public HttpResponseMessage RemoveAnimal(int id)
+        public HttpResponseMessage RemoveAnimal(int animalId)
         {
             try
             {
-                _zooService.RemoveAnimal(id);
+                _zooService.RemoveAnimal(animalId);
             }
             catch (Exception)
             {
@@ -87,6 +87,21 @@ namespace Zoo_Animals_Api.Controllers
             }
 
             return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetSpecies()
+        {
+            try
+            {
+                var species = _zooService.GetAllSpecies().ToList();
+                var speciesDto = Mapper.Map<List<Species>, List<SpeciesDTO>>(species);
+                return Request.CreateResponse(HttpStatusCode.OK, speciesDto);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
+            }
         }
     }
 }

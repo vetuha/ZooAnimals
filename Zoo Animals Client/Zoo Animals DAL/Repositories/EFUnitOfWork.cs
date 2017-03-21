@@ -15,9 +15,9 @@ namespace Zoo_Animals_DAL.Repositories
         private AnimalRepository _animalRepository;
         private SpeciesRepository _speciesRepository;
 
-        public EFUnitOfWork(string connectionString)
+        public EFUnitOfWork()
         {
-            _db = new ZooContext(connectionString);
+            _db = new ZooContext();
         }
         public IRepository<Animal> Animals
         {

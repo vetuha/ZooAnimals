@@ -13,8 +13,8 @@ namespace Zoo_Animals_DAL.EF
         {
             Database.SetInitializer<ZooContext>(new ZooDbInitializer());
         }
-        public ZooContext(string connectionString)
-                : base(connectionString)
+        public ZooContext()
+                : base("DbConnection")
         {
         }
 

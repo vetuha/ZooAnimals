@@ -13,5 +13,7 @@ namespace Zoo_Animals_DAL.Entitites
         public int YearOfBirth { get; set; }
 
         public DateTime Added { get; set; }
+
+        public DateTime Modified { get; set; }
     }
 }
