@@ -1,9 +1,6 @@
 ﻿<div class="row">
     <div class="col-md-8">
-        <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default">Add Animal</button>
-            <button type="button" class="btn btn-default">Restore Defaults</button>
-        </div>
+        <button type="button" class="btn btn-default" ng-click="ctrl.addAnimal()">Add Animal</button>
     </div>
     <div class="col-md-4">
         <ul uib-pagination boundary-links="true" total-items="ctrl.totalItems"

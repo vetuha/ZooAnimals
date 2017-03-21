@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo Animals Client", "Zoo Animals Client\Zoo Animals Client.csproj", "{B1F9E1EC-D290-4825-9C6E-800550082389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo Animals Api", "Zoo Animals Api\Zoo Animals Api.csproj", "{3ED3D33B-B845-4238-A561-6AB397418428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo Animals DAL", "Zoo Animals DAL\Zoo Animals DAL.csproj", "{3BAE6989-154D-4FE4-A043-CF54F05EF551}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1F9E1EC-D290-4825-9C6E-800550082389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F9E1EC-D290-4825-9C6E-800550082389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F9E1EC-D290-4825-9C6E-800550082389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F9E1EC-D290-4825-9C6E-800550082389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ED3D33B-B845-4238-A561-6AB397418428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ED3D33B-B845-4238-A561-6AB397418428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ED3D33B-B845-4238-A561-6AB397418428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ED3D33B-B845-4238-A561-6AB397418428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BAE6989-154D-4FE4-A043-CF54F05EF551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BAE6989-154D-4FE4-A043-CF54F05EF551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BAE6989-154D-4FE4-A043-CF54F05EF551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BAE6989-154D-4FE4-A043-CF54F05EF551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

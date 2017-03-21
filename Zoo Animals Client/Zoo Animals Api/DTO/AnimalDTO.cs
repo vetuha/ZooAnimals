@@ -9,6 +9,8 @@ namespace Zoo_Animals_Api.DTO
         [DataMember]
         public int Id { get; set; }
         [DataMember]
+        public SpeciesDTO Species { get; set; }
+        [DataMember]
         public string Name { get; set; }
         [DataMember]
         public int YearOfBirth { get; set; }

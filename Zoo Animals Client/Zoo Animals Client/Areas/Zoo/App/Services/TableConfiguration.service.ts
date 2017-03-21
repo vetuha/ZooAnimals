@@ -1,13 +1,13 @@
 ﻿module FitsMe.Zoo.Components {
     'use strict';
 
-    export class TableColumns {
+    export class TableColumn {
         DisplayName: string;
         FieldName: string;
     }
 
     export interface ITableConfigurationService {
-        getColumns(): TableColumns[];
+        getColumns(): TableColumn[];
     }
 
     class TableConfigurationService
@@ -20,7 +20,7 @@
             var ctrl = this;
         }
 
-        public getColumns(): TableColumns[] {
+        public getColumns(): TableColumn[] {
             var speciesField = {
                 DisplayName: 'Species',
                 FieldName: 'Species'

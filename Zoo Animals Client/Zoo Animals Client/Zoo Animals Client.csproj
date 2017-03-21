@@ -185,9 +185,14 @@
     <Content Include="Areas\Zoo\App\Components\AnimalsList\Animals.component.html" />
     <Content Include="Areas\Zoo\App\Components\AnimalsList\AnimalsTable.component.html" />
     <Content Include="Areas\Zoo\App\Components\AnimalsList\AnimalsTopMenu.component.html" />
+    <Content Include="Areas\Zoo\App\Components\AnimalsList\Modals\AnimalModal.component.html" />
+    <Content Include="Areas\Zoo\App\Components\AnimalsList\Modals\DeleteAnimalModal.component.html" />
     <Content Include="Areas\Zoo\App\Components\Home.component.html" />
+    <Content Include="Content\bootstrap-notify.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\styles\alert-bangtidy.css" />
+    <Content Include="Content\styles\alert-blackgloss.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -230,6 +235,7 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap-notify.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\errors.json" />
@@ -1052,6 +1058,7 @@
     <TypeScriptCompile Include="Angular\Common.module.ts" />
     <TypeScriptCompile Include="Angular\Models\AnimalDTO.ts" />
     <TypeScriptCompile Include="Angular\Models\SpeciesDTO.ts" />
+    <TypeScriptCompile Include="Angular\Services\Notification.service.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\App.config.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\App.core.module.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\App.module.ts" />
@@ -1060,6 +1067,9 @@
     <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\Animals.component.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\AnimalsTable.component.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\AnimalsTopMenu.component.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\Modals\AnimalModal.component.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\Modals\AnimalsModal.model.ts" />
+    <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\Modals\DeleteAnimalModal.component.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\Components\AnimalsList\Order.component.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\Components\Components.module.ts" />
     <TypeScriptCompile Include="Areas\Zoo\App\Components\Home.component.ts" />

@@ -19,7 +19,7 @@
         }      
 
 
-        private getSpeciesUrl: string = "Zoo/GetSpecies";
+        private getSpeciesUrl: string = "/api/Zoo/GetSpecies";
 
         public GetAllSpecies(): ng.IPromise<FitsMe.Api.SpeciesDTO[]> {
             var def = this.$q.defer();

@@ -1,9 +1,13 @@
 ﻿<div>
-    <fits-me-animals-top-menu-component animals="ctrl.animals" current-page="ctrl.currentPage">
+    <fits-me-animals-top-menu-component animals="ctrl.animals"
+                                        current-page="ctrl.currentPage"
+                                        add-animal="ctrl.addAnimal()">
     </fits-me-animals-top-menu-component>
 
     <fits-me-animals-table-component animals="ctrl.animals"
                                      current-page="ctrl.currentPage"
-                                     total-items="ctrl.totalItems">
+                                     total-items="ctrl.totalItems"
+                                     edit-animal="ctrl.editAnimal(animal)"
+                                     remove-animal="ctrl.removeAnimal(animal)">
     </fits-me-animals-table-component>
 </div>

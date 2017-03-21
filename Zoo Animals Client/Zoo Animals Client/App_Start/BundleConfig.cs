@@ -20,6 +20,7 @@ namespace Zoo_Animals_Client
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap-notify.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
@@ -38,17 +39,20 @@ namespace Zoo_Animals_Client
                       .Include("~/Angular/Common.module.js")
                       .Include("~/Angular/Common.config.js")
                       .IncludeDirectory("~/Angular/Models", "*.js", false)
+                      .IncludeDirectory("~/Angular/Services", "*.js", false)
                       .Include("~/Areas/Zoo/App/App.core.module.js")
                       .Include("~/Areas/Zoo/App/App.module.js")
                       .Include("~/Areas/Zoo/App/App.run.js")
                       .Include("~/Areas/Zoo/App/App.config.js")
                       .Include("~/Areas/Zoo/App/Components/Components.module.js")
+                      .Include("~/Areas/Zoo/App/Components/AnimalsList/Modals/AnimalsModal.model.js")
                       .IncludeDirectory("~/Areas/Zoo/App/Components", "*.component.js", true)
                       .IncludeDirectory("~/Areas/Zoo/App/Services", "*.js", true)
                       .Include("~/Angular/Interceptor.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-notify.css",
                       "~/Content/site.css"));
         }
     }

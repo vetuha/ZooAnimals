@@ -9,6 +9,7 @@
 
         public totalItems: number;
         public currentPage: number;
+        public addAnimal: () => void;
 
         static $inject = ['$injector',
             '$scope',
@@ -46,7 +47,8 @@
         constructor() {
             this.bindings = {
                 animals: '=',
-                currentPage: '='
+                currentPage: '=',
+                addAnimal: '&'
             };
 
             this.controller = 'fitsMeAnimalsTopMenuController';

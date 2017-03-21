@@ -1,0 +1,23 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{ctrl.modalTitle}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="species">Species:</label>
+            <select type="text" class="form-control" id="species" ng-options="item as item.Name for item in ctrl.allSpecies" ng-model="ctrl.animal.Species"></select>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="John" ng-model="ctrl.animal.Name">
+        </div>
+        <div class="form-group">
+            <label for="year">Year of Birth:</label>
+            <input type="number" class="form-control" id="year" placeholder="2017" ng-model="ctrl.animal.YearOfBirth">
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="ctrl.close()">Cancel</button>
+</div>
