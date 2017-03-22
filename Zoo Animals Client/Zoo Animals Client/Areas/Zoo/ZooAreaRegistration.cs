@@ -16,8 +16,8 @@ namespace Zoo_Animals_Client.Areas.Zoo
         {
             context.MapRoute(
                 "Zoo_default",
-                "Zoo/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                "{controller}/{action}/{id}",
+                new {area = "Zoo", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

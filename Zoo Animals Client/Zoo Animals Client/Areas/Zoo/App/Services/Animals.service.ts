@@ -1,5 +1,6 @@
 ﻿module FitsMe.Zoo.Components {
     import AnimalDto = FitsMe.Api.AnimalDTO;
+    import ZooServiceBase = FitsMe.Common.ZooServiceBase;
     'use strict';
 
     export interface IAnimalsService {
@@ -8,19 +9,19 @@
         DeleteAnimal(id:number): ng.IPromise<string>;
     }
 
-    class AnimalsService implements IAnimalsService {
-
-        static $inject = ['$q', '$log', '$http'];
+    class AnimalsService extends ZooServiceBase implements IAnimalsService {
+        static $inject = ['$injector','$q', '$log', '$http'];
 
         constructor(
+            protected $injector: angular.auto.IInjectorService,
             protected $q: ng.IQService,
             protected $log: ng.ILogService,
             protected $http: ng.IHttpService) {
-
+            super($injector);
             var self = this;
         }
 
-        private getAnimalsUrl: string = "/api/Zoo/GetAnimals";
+        private getAnimalsUrl: string = this.apiUrl + "/api/Zoo/GetAnimals";
 
         public GetAllAnimals(): ng.IPromise<FitsMe.Api.AnimalDTO[]> {
             var def = this.$q.defer();
@@ -36,7 +37,7 @@
             return def.promise;
         }
 
-        private addAnimalUrl: string = "/api/Zoo/AddAnimal";
+        private addAnimalUrl: string = this.apiUrl + "/api/Zoo/AddAnimal";
 
         public AddAnimal(animalDto: AnimalDto): ng.IPromise<string> {
             var def = this.$q.defer();
@@ -52,7 +53,7 @@
             return def.promise;
         }
 
-        private removeAnimalUrl: string = "/api/Zoo/RemoveAnimal";
+        private removeAnimalUrl: string = this.apiUrl + "/api/Zoo/RemoveAnimal";
 
         public DeleteAnimal(id:number): ng.IPromise<string> {
             var def = this.$q.defer();

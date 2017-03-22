@@ -38,6 +38,7 @@ namespace Zoo_Animals_Client
             bundles.Add(new ScriptBundle("~/bundles/zoojs")
                       .Include("~/Angular/Common.module.js")
                       .Include("~/Angular/Common.config.js")
+                      .IncludeDirectory("~/Angular/Bases", "*.js", false)
                       .IncludeDirectory("~/Angular/Models", "*.js", false)
                       .IncludeDirectory("~/Angular/Services", "*.js", false)
                       .Include("~/Areas/Zoo/App/App.core.module.js")
