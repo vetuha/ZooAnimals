@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Zoo_Animals_Api.Inrefaces;
 using Zoo_Animals_DAL.Entitites;
 using Zoo_Animals_DAL.Interfaces;

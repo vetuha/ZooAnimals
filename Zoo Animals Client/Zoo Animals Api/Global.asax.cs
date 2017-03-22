@@ -31,11 +31,9 @@ namespace Zoo_Animals_Api
                 cfg.CreateMap<Animal, AnimalDTO>();
                 cfg.CreateMap<AnimalDTO, Animal>()
                    .ForMember(dest => dest.Modified, opt => opt.UseValue(DateTime.Now));
-                cfg.CreateMap<Species, SpeciesDTO>();
-                cfg.CreateMap<SpeciesDTO, Species>();
-                cfg.CreateMap<List<Species>, List<SpeciesDTO>>();
-                cfg.CreateMap<List<AnimalDTO>, List<Animal>>();
-                cfg.CreateMap<List<Animal>, List<AnimalDTO>>();
+                cfg.CreateMap<Species, SpeciesDTO>().ReverseMap();
+                cfg.CreateMap<List<Species>, List<SpeciesDTO>>().ReverseMap();
+                cfg.CreateMap<List<Animal>, List<AnimalDTO>>().ReverseMap();
             });
         }
     }
