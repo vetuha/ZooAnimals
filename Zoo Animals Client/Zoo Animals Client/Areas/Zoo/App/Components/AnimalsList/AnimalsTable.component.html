@@ -3,19 +3,17 @@
         <thead>
             <tr>
                 <th ng-repeat="column in ctrl.columns">
-                    <div>
-                        <fits-me-animals-order-component title="{{column.DisplayName}}"
-                                                         field="{{column.FieldName}}"
-                                                         order-by="ctrl.orderBy"
-                                                         items="ctrl.animals">
-                        </fits-me-animals-order-component>
-                    </div>
+                    <fits-me-animals-order-component title="{{column.DisplayName}}"
+                                                     field="{{column.FieldName}}"
+                                                     order-by="ctrl.orderBy"
+                                                     items="ctrl.animals">
+                    </fits-me-animals-order-component>
                 </th>
                 <th>
-                    Edit
+                    <span>Edit</span>
                 </th>
                 <th>
-                    Remove
+                    <span>Remove</span>
                 </th>
             </tr>
         </thead>
@@ -37,5 +35,5 @@
             </tr>
         </tbody>
     </table>
-    <div class="panel panel-info"><div class="panel-footer">Average age of all the animals in our zoo: {{ctrl.avgAge}}</div></div>
+    <div class="alert alert-warning">Average age of all the animals in our zoo: {{ctrl.avgAge}}</div>
 </div>

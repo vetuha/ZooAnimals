@@ -106,6 +106,7 @@
                 controller: 'fitsMeAnimalModalController',
                 controllerAs: 'ctrl',
                 size: 'lg',
+                backdrop : false,
                 resolve: {
                     modalParams: () => modalParams
                 }

@@ -2,22 +2,28 @@
     <h3 class="modal-title" id="modal-title">{{ctrl.modalTitle}}</h3>
 </div>
 <div class="modal-body" id="modal-body">
-    <div class="form-inline">
+    <div class="form-horizontal">
         <div class="form-group">
-            <label for="species">Species:</label>
-            <select type="text" class="form-control" id="species" ng-options="item as item.Name for item in ctrl.allSpecies" ng-model="ctrl.animal.Species"></select>
+            <label class="control-label col-md-3" for="Species">Species:</label>
+            <div class="col-md-8">
+                <select type="text" class="form-control" id="Species" ng-options="item as item.Name for item in ctrl.allSpecies" ng-model="ctrl.animal.Species"></select>
+            </div>
         </div>
         <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="John" ng-model="ctrl.animal.Name">
+            <label class="control-label col-md-3" for="Name">Name:</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="Name" placeholder="John" ng-model="ctrl.animal.Name">
+            </div>
         </div>
         <div class="form-group">
-            <label for="year">Year of Birth:</label>
-            <input type="number" class="form-control" id="year" placeholder="2017" ng-model="ctrl.animal.YearOfBirth">
+            <label class="control-label col-md-3" for="Year">Year of Birth:</label>
+            <div class="col-md-8">
+                <input type="number" class="form-control" id="Year" placeholder="2017" ng-model="ctrl.animal.YearOfBirth">
+            </div>
         </div>
     </div>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="ctrl.close()">Cancel</button>
+    <button class="btn btn-danger" type="button" ng-click="ctrl.close()">Cancel</button>
 </div>

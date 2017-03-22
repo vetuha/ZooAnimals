@@ -18,20 +18,27 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        @RenderBody()
- 
-        <footer class="footer">
-            <div class="container">
-                <p>&copy; @DateTime.Now.Year - My Zoo</p>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                @RenderBody()
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>&copy; @DateTime.Now.Year - My Zoo</p>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
     </div>
-    @Html.Action("Urls", "Home", new { area = String.Empty })
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/angularjs")
-    @Scripts.Render("~/bundles/zoojs")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+<div class="container">
+    
+
+</div>
+@Html.Action("Urls", "Home", new {area = String.Empty})
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/angularjs")
+@Scripts.Render("~/bundles/zoojs")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>

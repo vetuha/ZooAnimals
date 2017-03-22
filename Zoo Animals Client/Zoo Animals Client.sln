@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo Animals Api", "Zoo Anim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo Animals DAL", "Zoo Animals DAL\Zoo Animals DAL.csproj", "{3BAE6989-154D-4FE4-A043-CF54F05EF551}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo Animals Test", "Zoo Animals Test\Zoo Animals Test.csproj", "{C499A6FA-1FF3-45A6-A8B0-A5742158D02F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3BAE6989-154D-4FE4-A043-CF54F05EF551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BAE6989-154D-4FE4-A043-CF54F05EF551}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BAE6989-154D-4FE4-A043-CF54F05EF551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C499A6FA-1FF3-45A6-A8B0-A5742158D02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C499A6FA-1FF3-45A6-A8B0-A5742158D02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C499A6FA-1FF3-45A6-A8B0-A5742158D02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C499A6FA-1FF3-45A6-A8B0-A5742158D02F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

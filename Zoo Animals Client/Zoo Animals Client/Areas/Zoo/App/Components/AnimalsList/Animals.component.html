@@ -1,7 +1,16 @@
-﻿<div>
+﻿<div class="masthead clearfix">
+    <div class="inner">
+        <h2 class="masthead-brand">Zoo</h2>
+        <nav>
+            <ul class="nav masthead-nav">
+                <li class="active pointer"><a ng-click="ctrl.addAnimal()">Add Animal</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="inner cover">
     <fits-me-animals-top-menu-component animals="ctrl.animals"
-                                        current-page="ctrl.currentPage"
-                                        add-animal="ctrl.addAnimal()">
+                                        current-page="ctrl.currentPage">
     </fits-me-animals-top-menu-component>
 
     <fits-me-animals-table-component animals="ctrl.animals"
