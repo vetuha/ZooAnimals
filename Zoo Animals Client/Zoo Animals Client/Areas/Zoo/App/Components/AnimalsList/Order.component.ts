@@ -70,7 +70,7 @@
             this.controller = 'fitsMeAnimalsOrderController';
             this.controllerAs = 'ctrl';
             this.template = '<span ng-click="ctrl.onClick($event);" class="pointer" ng-if="ctrl.notInSort()">{{ctrl.title}}<i class="glyphicon"></i></span>'
-                + '<span ng-click="ctrl.onClick($event);" class= pointer" ng-if="ctrl.inSort()" >{{ctrl.title}}<i class="glyphicon" ng-class="{\'glyphicon-chevron-up\': ctrl.reverse, \'glyphicon-chevron-down\': !ctrl.reverse}"></i></span>';
+                + '<span ng-click="ctrl.onClick($event);" class="pointer" ng-if="ctrl.inSort()" >{{ctrl.title}}<i class="glyphicon" ng-class="{\'glyphicon-chevron-up\': ctrl.reverse, \'glyphicon-chevron-down\': !ctrl.reverse}"></i></span>';
         }
     }
     

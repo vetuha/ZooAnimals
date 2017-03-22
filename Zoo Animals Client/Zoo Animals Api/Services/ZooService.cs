@@ -19,6 +19,12 @@ namespace Zoo_Animals_Api.Services
             _uow.Save();
         }
 
+        public void EditAnimal(Animal animal)
+        {
+            _uow.Animals.Update(animal);
+            _uow.Save();
+        }
+
         public IEnumerable<Animal> GetAnimals()
         {
             return _uow.Animals.GetAll();

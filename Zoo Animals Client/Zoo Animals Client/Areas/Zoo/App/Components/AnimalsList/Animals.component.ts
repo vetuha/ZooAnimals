@@ -15,7 +15,7 @@
 
         static $inject = ['$injector',
             '$scope',
-            'usSpinnerService',
+            '$loading',
             '$q',
             '$uibModal',
             'fitsMeZooAnimalsService',
@@ -24,7 +24,7 @@
 
         constructor(protected $injector: angular.auto.IInjectorService,
             $scope: angular.IRootScopeService,
-            private spinner: any,
+            private $loading: any,
             protected $q: angular.IQService,
             protected modal: angular.ui.bootstrap.IModalService,
             protected animalsService: FitsMe.Zoo.Components.IAnimalsService,
@@ -38,7 +38,7 @@
 
         private getAllAnimals(): void {
             var self = this;
-            self.spinner.spin('home-spinner');
+            self.$loading.start('home-spinner');
 
             self.$q.all({
                 allSpecies: self.speciesService.GetAllSpecies(),
@@ -48,7 +48,7 @@
                 self.allSpecies = results['allSpecies'];
             }).catch((reason: any) => {
                 self.notificationService.ShowNotification('An error has occurred, please try again.', 'error');
-            }).finally(() => self.spinner.stop('home-spinner'));
+                }).finally(() => self.$loading.finish('home-spinner'));
         }
 
         getMaxPage(): number {

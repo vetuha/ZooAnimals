@@ -1,29 +1,33 @@
-﻿<div class="modal-header">
-    <h3 class="modal-title" id="modal-title">{{ctrl.modalTitle}}</h3>
-</div>
-<div class="modal-body" id="modal-body">
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-md-3" for="Species">Species:</label>
-            <div class="col-md-8">
-                <select type="text" class="form-control" id="Species" ng-options="item as item.Name for item in ctrl.allSpecies" ng-model="ctrl.animal.Species"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-3" for="Name">Name:</label>
-            <div class="col-md-8">
-                <input type="text" class="form-control" id="Name" placeholder="John" ng-model="ctrl.animal.Name">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-3" for="Year">Year of Birth:</label>
-            <div class="col-md-8">
-                <input type="number" class="form-control" id="Year" placeholder="2017" ng-model="ctrl.animal.YearOfBirth">
-            </div>
-        </div>
+﻿<div dw-loading="manage-animal-spinner">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">{{ctrl.modalTitle}}</h3>
     </div>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
-    <button class="btn btn-danger" type="button" ng-click="ctrl.close()">Cancel</button>
+    <div class="modal-body" id="modal-body">
+        <ng-form name="ctrl.animalForm">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-3" for="Species">Species:</label>
+                    <div class="col-md-8">
+                        <select type="text" class="form-control" id="Species" ng-required="true" ng-options="item as item.Name for item in ctrl.allSpecies" ng-model="ctrl.animal.Species"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3" for="Name">Name:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="Name" placeholder="John" ng-required="true" ng-model="ctrl.animal.Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3" for="Year">Year of Birth:</label>
+                    <div class="col-md-8">
+                        <input type="number" min="1900" max="2017" class="form-control" id="Year" placeholder="2017" ng-required="true" ng-model="ctrl.animal.YearOfBirth">
+                    </div>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-disabled="ctrl.animalForm.$invalid" ng-click="ctrl.ok()">OK</button>
+        <button class="btn btn-danger" type="button" ng-click="ctrl.close()">Cancel</button>
+    </div>
 </div>

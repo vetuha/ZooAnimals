@@ -31,8 +31,8 @@ namespace Zoo_Animals_Client
                       "~/Scripts/angular-moment.min.js",
                       "~/Scripts/angular-ui-router.js",
                       "~/Scripts/lodash.js",
-                      "~/Scripts/angular-spinner.min.js",
                       "~/Scripts/spin.min.js",
+                      "~/Scripts/angular-loading/angular-loading.js",
                       "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/zoojs")
@@ -54,6 +54,7 @@ namespace Zoo_Animals_Client
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-notify.css",
+                      "~/Scripts/angular-loading/angular-loading.css",
                       "~/Content/site.css"));
         }
     }

@@ -12,14 +12,14 @@
 
         static $inject = ['$injector',
             '$scope',
-            'usSpinnerService',
+            '$loading',
             '$q',
             '$uibModal',
             'fitsMeZooAnimalsService'];
 
         constructor(protected $injector: angular.auto.IInjectorService,
             $scope: angular.IRootScopeService,
-            private spinner: any,
+            private $loading: any,
             protected $q: angular.IQService,
             protected $uibModal: angular.ui.bootstrap.IModalService,
             protected animalsService: FitsMe.Zoo.Components.IAnimalsService) {

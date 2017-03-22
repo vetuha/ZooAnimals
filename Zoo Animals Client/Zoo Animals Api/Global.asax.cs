@@ -1,12 +1,8 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Zoo_Animals_Api.DTO;
-using Zoo_Animals_DAL.Entitites;
+using Zoo_Animals_Api.App_Start;
 
 namespace Zoo_Animals_Api
 {
@@ -21,20 +17,7 @@ namespace Zoo_Animals_Api
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             UnityConfig.RegisterComponents();
 
-            ConfigureUserMappings();
-        }
-
-        private static void ConfigureUserMappings()
-        {
-            Mapper.Initialize(cfg =>
-            {
-                cfg.CreateMap<Animal, AnimalDTO>();
-                cfg.CreateMap<AnimalDTO, Animal>()
-                   .ForMember(dest => dest.Modified, opt => opt.UseValue(DateTime.Now));
-                cfg.CreateMap<Species, SpeciesDTO>().ReverseMap();
-                cfg.CreateMap<List<Species>, List<SpeciesDTO>>().ReverseMap();
-                cfg.CreateMap<List<Animal>, List<AnimalDTO>>().ReverseMap();
-            });
+            AutoMapperConfig.Configure();
         }
     }
 }

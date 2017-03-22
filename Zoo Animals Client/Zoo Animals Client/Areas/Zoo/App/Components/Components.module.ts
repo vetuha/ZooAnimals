@@ -7,6 +7,6 @@
             'ngTouch',
             'ngSanitize',
             'ui.bootstrap',
-            'angularSpinner'
+            'darthwade.loading'
         ]);
 })();

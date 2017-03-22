@@ -36,6 +36,22 @@ namespace Zoo_Animals_Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [HttpPost]
+        public HttpResponseMessage EditAnimal(AnimalDTO animalDto)
+        {
+            try
+            {
+                var animal = Mapper.Map<AnimalDTO, Animal>(animalDto);
+                _zooService.EditAnimal(animal);
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
         [HttpGet]
         public HttpResponseMessage GetAnimals()
         {
