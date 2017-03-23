@@ -7,9 +7,5 @@
         Name: string;
         YearOfBirth: number;
         Added: Date;
-
-        public get Age(): number {
-            return new Date().getFullYear() - this.YearOfBirth;
-        }
     }
 }

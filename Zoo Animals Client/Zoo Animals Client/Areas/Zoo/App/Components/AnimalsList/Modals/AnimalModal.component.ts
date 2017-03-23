@@ -11,6 +11,7 @@
         public animalForm: any;
         private modalTitle: string;
         private animal: Api.AnimalDTO;
+        private pristineAnimal: Api.AnimalDTO = new Api.AnimalDTO();
         private allSpecies: Api.SpeciesDTO[] = [];
 
         static $inject = [
@@ -20,6 +21,7 @@
             '$uibModalInstance',
             'fitsMeZooAnimalsService',
             'fitsMeZooSpeciesService',
+            'FitsMe.Common.NotificationService',
             'modalParams'
         ];
 
@@ -29,12 +31,18 @@
             protected $uibModalInstance: ModalServiceInstance,
             protected animalsService: FitsMe.Zoo.Components.IAnimalsService,
             protected speciesService: FitsMe.Zoo.Components.ISpeciesService,
+            protected notificationService: FitsMe.Common.INotificationService,
             protected modalParams: Components.AnimalModalParams) {
 
             var self = this;
 
             self.modalTitle = self.modalParams.title;
             self.animal = self.modalParams.animal;
+
+            //if edit mode - set pristine animal, to check for modifications later
+            if (self.modalParams.operation === AnimalOperationEnum.Edit) {
+                self.pristineAnimal = angular.copy(self.animal);
+            }
 
             self.speciesService.GetAllSpecies().then((result) => {
                 self.allSpecies = result;
@@ -43,6 +51,12 @@
 
         private ok(): void {
             var self = this;
+            //checking for changes
+            if (self.animalForm.$pristine || angular.equals(self.animal, self.pristineAnimal)) {
+                this.notificationService.ShowNotification('Nothing changed for this animal.', 'warning');
+                return;
+            }
+            //else send request to the server
             self.$loading.start('manage-animal-spinner');
             switch (self.modalParams.operation) {
                 case AnimalOperationEnum.Add:
@@ -55,30 +69,40 @@
         }
 
         private addAnimal(): void {
-            var self = this;            
-
-            self.animalsService.AddAnimal(self.animal).then((results) => {
-                self.apply('New animal has been added successfully!');
+            var self = this;
+            self.animalsService.AddAnimal(self.animal).then((result) => {
+                //all is ok, close modal and return new Animal
+                self.apply(result);
             }).catch((reason: any) => {
-                //self.notificationService.ShowNotification('An error has occurred, please try again.', 'error');
+                //something went wrong - show notification
+                self.showError(reason);
             }).finally(() => self.$loading.finish('manage-animal-spinner'));
         }
 
         private editAnimal(): void {
             var self = this;
-            self.animalsService.EditAnimal(self.animal).then((results) => {
-                self.apply('Animal data has been updated successfully!');
+            self.animalsService.EditAnimal(self.animal).then((result) => {
+                //all is ok, close modal and return modified Animal
+                self.apply(self.animal);
             }).catch((reason: any) => {
-                //self.notificationService.ShowNotification('An error has occurred, please try again.', 'error');
-                }).finally(() => self.$loading.stop('home-spinner'));
+                //something went wrong - show notification
+                self.showError(reason);
+            }).finally(() => self.$loading.stop('manage-animal-spinner'));
         }
 
         private close(): void {
             this.$uibModalInstance.dismiss('close');
         }
 
-        private apply(resultMessage: string): void {
-            this.$uibModalInstance.close(resultMessage);
+        private apply(animal: Api.AnimalDTO): void {
+            this.$uibModalInstance.close(animal);
+        }
+
+        private showError(error: any) {
+            var errorMgs = 'An error has occurred, please try again.';
+            if (error.Message)
+                errorMgs = error.Message;
+            this.notificationService.ShowNotification(errorMgs, 'error');
         }
     }
 

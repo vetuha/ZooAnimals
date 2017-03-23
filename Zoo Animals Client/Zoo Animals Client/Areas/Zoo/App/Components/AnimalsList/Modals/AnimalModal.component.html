@@ -8,7 +8,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3" for="Species">Species:</label>
                     <div class="col-md-8">
-                        <select type="text" class="form-control" id="Species" ng-required="true" ng-options="item as item.Name for item in ctrl.allSpecies" ng-model="ctrl.animal.Species"></select>
+                        <select type="text" class="form-control" id="Species" ng-required="true" ng-options="item as item.Name for item in ctrl.allSpecies track by item.Id" ng-model="ctrl.animal.Species"></select>
                     </div>
                 </div>
                 <div class="form-group">

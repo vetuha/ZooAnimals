@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Zoo_Animals_Api.DTO;
 using Zoo_Animals_Api.Inrefaces;
+using Zoo_Animals_Api.Services;
 using Zoo_Animals_DAL.Entitites;
 
 namespace Zoo_Animals_Api.Controllers
@@ -25,15 +26,21 @@ namespace Zoo_Animals_Api.Controllers
         {
             try
             {
-                var animal = Mapper.Map<AnimalDTO, Animal>(animalDto);
-                _zooService.AddAnimal(animal);
+                var animalToAdd = Mapper.Map<Animal>(animalDto);
+                //validate animal
+                var validationResults = ZooValidator.Validate(animalToAdd, _zooService.GetAnimals().ToList());
+                if (validationResults.Count > 0)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, String.Join("\n", validationResults));
+
+                var newAnimal = _zooService.AddAnimal(animalToAdd);
+                return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<AnimalDTO>(newAnimal));
             }
             catch (Exception)
             {
+                //Some logging first
+                //Logger.log(ex)
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
             }
-
-            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPost]
@@ -41,11 +48,17 @@ namespace Zoo_Animals_Api.Controllers
         {
             try
             {
-                var animal = Mapper.Map<AnimalDTO, Animal>(animalDto);
+                var animal = Mapper.Map<Animal>(animalDto);
+                //validate animal
+                var validationResults = ZooValidator.Validate(animal, _zooService.GetAnimals().ToList());
+                if (validationResults.Count > 0)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, String.Join("\n", validationResults));
                 _zooService.EditAnimal(animal);
             }
             catch (Exception)
             {
+                //Some logging first
+                //Logger.log(ex)
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
             }
 
@@ -63,6 +76,8 @@ namespace Zoo_Animals_Api.Controllers
             }
             catch (Exception)
             {
+                //Some logging first
+                //Logger.log(ex)
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
             }
 
@@ -83,8 +98,10 @@ namespace Zoo_Animals_Api.Controllers
 
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Animal not found in the our zoo.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                //Some logging first
+                //Logger.log(ex)
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
             }
         }
@@ -96,8 +113,10 @@ namespace Zoo_Animals_Api.Controllers
             {
                 _zooService.RemoveAnimal(animalId);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                //Some logging first
+                //Logger.log(ex)
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
             }
 
@@ -115,6 +134,8 @@ namespace Zoo_Animals_Api.Controllers
             }
             catch (Exception ex)
             {
+                //Some logging first
+                //Logger.log(ex)
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong.");
             }
         }

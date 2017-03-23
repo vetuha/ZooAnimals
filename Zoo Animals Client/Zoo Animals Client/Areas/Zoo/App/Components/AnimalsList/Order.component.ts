@@ -12,7 +12,6 @@
         public title: string;
         public items: any[];
         public field: string;
-        public class: string = "down";
         public orderBy: string;
         public reverse: boolean;
 

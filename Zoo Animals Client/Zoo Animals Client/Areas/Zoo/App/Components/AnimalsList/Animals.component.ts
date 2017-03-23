@@ -13,6 +13,10 @@
         private allSpecies: FitsMe.Api.SpeciesDTO[] = [];
         private numPages: number = 0;
 
+        get zooIsEmpty(): boolean {
+             return this.animals.length === 0;
+        }
+
         static $inject = ['$injector',
             '$scope',
             '$loading',
@@ -39,7 +43,7 @@
         private getAllAnimals(): void {
             var self = this;
             self.$loading.start('home-spinner');
-
+            //load all data for the Zoo
             self.$q.all({
                 allSpecies: self.speciesService.GetAllSpecies(),
                 allAnimals: self.animalsService.GetAllAnimals()
@@ -48,7 +52,7 @@
                 self.allSpecies = results['allSpecies'];
             }).catch((reason: any) => {
                 self.notificationService.ShowNotification('An error has occurred, please try again.', 'error');
-                }).finally(() => self.$loading.finish('home-spinner'));
+            }).finally(() => self.$loading.finish('home-spinner'));
         }
 
         getMaxPage(): number {
@@ -94,7 +98,8 @@
 
             modalInstance.result.then((remove) => {
                 if (remove) {
-
+                    _.remove(self.animals, { Id: animal.Id });
+                    self.notificationService.ShowNotification('Animal has been removed!', 'message');
                 }
             });
         }
@@ -106,13 +111,23 @@
                 controller: 'fitsMeAnimalModalController',
                 controllerAs: 'ctrl',
                 size: 'lg',
-                backdrop : false,
+                backdrop: false,
                 resolve: {
                     modalParams: () => modalParams
                 }
             });
 
-            modalInstance.result.then((result) => {
+            modalInstance.result.then((result: AnimalDto) => {
+                if (modalParams.operation == AnimalOperationEnum.Add) {
+                    self.animals.push(result);
+                    self.notificationService.ShowNotification('New animal has been added successfully!', 'message');
+                } else {
+                    let index = self.animals.indexOf(result);
+                    if (~index) {
+                        self.animals[index] = result;
+                    }
+                    self.notificationService.ShowNotification('Animal data has been updated successfully!', 'message');
+                }
 
             });
         }

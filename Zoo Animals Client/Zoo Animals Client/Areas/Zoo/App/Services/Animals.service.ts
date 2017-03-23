@@ -5,7 +5,7 @@
 
     export interface IAnimalsService {
         GetAllAnimals(): ng.IPromise<FitsMe.Api.AnimalDTO[]>;
-        AddAnimal(animalDto: AnimalDto): ng.IPromise<string>;
+        AddAnimal(animalDto: AnimalDto): ng.IPromise<Api.AnimalDTO>;
         EditAnimal(animalDto: AnimalDto): ng.IPromise<string>;
         DeleteAnimal(id:number): ng.IPromise<string>;
     }
@@ -40,12 +40,12 @@
 
         private addAnimalUrl: string = this.apiUrl + "/api/Zoo/AddAnimal";
 
-        public AddAnimal(animalDto: AnimalDto): ng.IPromise<string> {
+        public AddAnimal(animalDto: AnimalDto): ng.IPromise<Api.AnimalDTO> {
             var def = this.$q.defer();
             var self = this;
 
-            self.$http.post(self.getAnimalsUrl, animalDto).then((response) => {
-                def.resolve(response);
+            self.$http.post(self.addAnimalUrl, animalDto).then((response) => {
+                def.resolve(<Api.AnimalDTO>response.data);
             }, (err) => {
                 self.handleError(err);
                 def.reject(err);

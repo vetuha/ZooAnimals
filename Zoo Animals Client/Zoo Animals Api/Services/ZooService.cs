@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Zoo_Animals_Api.Inrefaces;
 using Zoo_Animals_DAL.Entitites;
 using Zoo_Animals_DAL.Interfaces;
@@ -13,15 +14,25 @@ namespace Zoo_Animals_Api.Services
         {
             _uow = uow;
         }
-        public void AddAnimal(Animal animal)
-        {            
-            _uow.Animals.Create(animal);
+        public Animal AddAnimal(Animal animalToAdd)
+        {
+            animalToAdd.Added = DateTime.Now;
+            animalToAdd.Modified = animalToAdd.Added;            
+            _uow.Animals.Create(animalToAdd);
             _uow.Save();
+
+            return animalToAdd;
         }
 
-        public void EditAnimal(Animal animal)
+        public void EditAnimal(Animal modifiedAnimal)
         {
-            _uow.Animals.Update(animal);
+            var currentAnimal = _uow.Animals.Get(modifiedAnimal.Id);
+            currentAnimal.Species = modifiedAnimal.Species;
+            currentAnimal.Name = modifiedAnimal.Name;
+            currentAnimal.YearOfBirth = modifiedAnimal.YearOfBirth;
+            currentAnimal.Modified = DateTime.Now;
+
+            _uow.Animals.Update(currentAnimal);
             _uow.Save();
         }
 

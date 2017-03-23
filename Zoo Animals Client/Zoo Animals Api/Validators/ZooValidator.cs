@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Zoo_Animals_Api.Validators;
 using Zoo_Animals_DAL.Entitites;
 
 namespace Zoo_Animals_Api.Services
 {
-    public class DuplicatesValidator
+    public class ZooValidator
     {
-        public static bool CheckForDuplicates(Animal animal, List<Animal> existingAnimals)
+        public static List<string> Validate(Animal model, List<Animal> existingAnimals)
         {
-            return existingAnimals.Any(x => x.Species.Id == animal.Species.Id && x.Name == animal.Name);
-        }
-
-        public static List<string> Validate(Animal model)
-        {
+            DuplicatesValidator duplicatesValidator = new DuplicatesValidator(existingAnimals);
             AnimalNameValidator animalNameValidator = new AnimalNameValidator();
+            duplicatesValidator.SetSuccessor(animalNameValidator);
             YearOfBirthValidator yearOfBirthValidator = new YearOfBirthValidator();
             animalNameValidator.SetSuccessor(yearOfBirthValidator);
 
-            return animalNameValidator.HandleValidation(model);
+            return duplicatesValidator.HandleValidation(model);
         }
-
     }
 }

@@ -16,6 +16,8 @@
         $logProvider: ng.ILogProvider): void {
                 
         $logProvider.debugEnabled(true);        
+        
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
         var urlFormat: string = '/';
         

@@ -5,7 +5,7 @@ namespace Zoo_Animals_Api.Inrefaces
 {
     public interface IZooService
     {
-        void AddAnimal(Animal animal);
+        Animal AddAnimal(Animal animal);
         void EditAnimal(Animal animal);
         Animal GetAnimal(int id);
         IEnumerable<Animal> GetAnimals();

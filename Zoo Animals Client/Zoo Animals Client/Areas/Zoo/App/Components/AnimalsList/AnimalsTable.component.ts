@@ -8,16 +8,15 @@
     class AnimalsTableController implements IAnimalsTableController {
         private orderBy: string = '';
         private animals: FitsMe.Api.AnimalDTO[] = [];
-        private currentAnimals: FitsMe.Api.AnimalDTO[] = [];
-        private currentPage: number;
         private columns: FitsMe.Zoo.Components.TableColumn[] = [];
 
         public editAnimal: (params) => void;
         public removeAnimal: (params) => void;
 
         public get avgAge(): number {
+            var self = this;
             if (this.animals.length)
-                return this.animals.reduce((p, c) => (p + c.Age), 0) / this.animals.length;
+                return this.animals.reduce((p, c) => (p + self.getAge(c.YearOfBirth)), 0) / this.animals.length;
 
             return 0;
         }
@@ -56,8 +55,16 @@
             if (fieldName == 'Species') {
                 return animalData.Name;
             }
+            if (fieldName == 'Age') {
+                return self.getAge(animal.YearOfBirth).toString();
+            }
 
             return animalData;
+        }
+
+        private getAge(yearOfBirth:number):number {
+            var age = new Date().getFullYear() - yearOfBirth;
+            return age;
         }
 
         modifyAnimal(animal: FitsMe.Api.AnimalDTO): void {
@@ -81,7 +88,6 @@
         constructor() {
             this.bindings = {
                 animals: '=',
-                currentPage: '=',
                 editAnimal: '&',
                 removeAnimal: '&'
             };
