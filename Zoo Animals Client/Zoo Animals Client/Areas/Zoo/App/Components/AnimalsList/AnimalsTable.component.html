@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="animal in ctrl.animals track by animal.Id">
+            <tr ng-repeat="animal in ctrl.animals">
                 <td ng-repeat="column in ctrl.columns">
                     <span ng-bind="::ctrl.format(animal,column.FieldName)"></span>
                 </td>
@@ -28,7 +28,7 @@
                     </span>
                 </td>
                 <td>
-                    <span class="pointer" ng-click="ctrl.removeAnimal(animal)">
+                    <span class="pointer" ng-click="ctrl.deleteAnimal(animal)">
                         <a class="glyphicon glyphicon-remove"></a>
                     </span>
                 </td>

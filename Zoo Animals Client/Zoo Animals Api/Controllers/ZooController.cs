@@ -55,7 +55,7 @@ namespace Zoo_Animals_Api.Controllers
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, String.Join("\n", validationResults));
                 _zooService.EditAnimal(animal);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //Some logging first
                 //Logger.log(ex)
@@ -106,7 +106,7 @@ namespace Zoo_Animals_Api.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage RemoveAnimal(int animalId)
         {
             try

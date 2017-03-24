@@ -7,11 +7,11 @@
         GetAllAnimals(): ng.IPromise<FitsMe.Api.AnimalDTO[]>;
         AddAnimal(animalDto: AnimalDto): ng.IPromise<Api.AnimalDTO>;
         EditAnimal(animalDto: AnimalDto): ng.IPromise<string>;
-        DeleteAnimal(id:number): ng.IPromise<string>;
+        DeleteAnimal(id: number): ng.IPromise<string>;
     }
 
     class AnimalsService extends ZooServiceBase implements IAnimalsService {
-        static $inject = ['$injector','$q', '$log', '$http'];
+        static $inject = ['$injector', '$q', '$log', '$http'];
 
         constructor(
             protected $injector: angular.auto.IInjectorService,
@@ -28,9 +28,9 @@
             var def = this.$q.defer();
             var self = this;
 
-            self.$http.get(self.getAnimalsUrl).then((response) => {
-                def.resolve(<FitsMe.Api.AnimalDTO[]>response.data);
-            }, (err) => {
+            self.$http.get(self.getAnimalsUrl).success((response) => {
+                def.resolve(<FitsMe.Api.AnimalDTO[]>response);
+            }).error((err) => {
                 self.handleError(err);
                 def.reject(err);
             });
@@ -44,9 +44,9 @@
             var def = this.$q.defer();
             var self = this;
 
-            self.$http.post(self.addAnimalUrl, animalDto).then((response) => {
-                def.resolve(<Api.AnimalDTO>response.data);
-            }, (err) => {
+            self.$http.post(self.addAnimalUrl, animalDto).success((response) => {
+                def.resolve(<Api.AnimalDTO>response);
+            }).error((err) => {
                 self.handleError(err);
                 def.reject(err);
             });
@@ -60,9 +60,9 @@
             var def = this.$q.defer();
             var self = this;
 
-            self.$http.post(self.editAnimalUrl, animalDto).then((response) => {
+            self.$http.post(self.editAnimalUrl, animalDto).success((response) => {
                 def.resolve(response);
-            }, (err) => {
+            }).error((err) => {
                 self.handleError(err);
                 def.reject(err);
             });
@@ -70,18 +70,20 @@
             return def.promise;
         }
 
-        private removeAnimalUrl: string = this.apiUrl + "/api/Zoo/RemoveAnimal";
+        private removeAnimalUrl: string = this.apiUrl + "/api/Zoo/RemoveAnimal?animalId=";
 
-        public DeleteAnimal(id:number): ng.IPromise<string> {
+        public DeleteAnimal(id: number): ng.IPromise<string> {
             var def = this.$q.defer();
             var self = this;
 
-            self.$http.post(self.removeAnimalUrl, { animalId: id}).then((response) => {
-                def.resolve(response);
-            }, (err) => {
-                self.handleError(err);
-                def.reject(err);
-            });
+            self.$http.get(self.removeAnimalUrl + id)
+                .success((response) => {
+                    def.resolve(response);
+                })
+                .error((err) => {
+                    self.handleError(err);
+                    def.reject(err);
+                });
 
             return def.promise;
         }

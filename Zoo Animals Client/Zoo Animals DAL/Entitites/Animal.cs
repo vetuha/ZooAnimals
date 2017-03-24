@@ -5,9 +5,7 @@ namespace Zoo_Animals_DAL.Entitites
     public class Animal
     {
         public int Id { get; set; }
-
-        public Species Species { get; set; }
-
+        
         public string Name { get; set; }
 
         public int YearOfBirth { get; set; }
@@ -15,5 +13,9 @@ namespace Zoo_Animals_DAL.Entitites
         public DateTime Added { get; set; }
 
         public DateTime Modified { get; set; }
+
+        public int SpeciesId { get; set; }
+
+        public virtual Species Species { get; set; }
     }
 }

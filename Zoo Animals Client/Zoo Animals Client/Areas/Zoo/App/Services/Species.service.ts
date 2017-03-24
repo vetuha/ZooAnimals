@@ -10,7 +10,7 @@
 
         private savedSpecies: FitsMe.Api.SpeciesDTO[];
 
-        static $inject = ['$injector','$q', '$log', '$http'];
+        static $inject = ['$injector', '$q', '$log', '$http'];
         constructor(
             protected $injector: angular.auto.IInjectorService,
             protected $q: ng.IQService,
@@ -19,7 +19,7 @@
 
             super($injector);
             var self = this;
-        }      
+        }
 
 
         private getSpeciesUrl: string = this.apiUrl + "/api/Zoo/GetSpecies";
@@ -30,15 +30,16 @@
 
             if (self.savedSpecies && self.savedSpecies.length) {
                 def.resolve(self.savedSpecies);
-            } else {               
+            } else {
 
-                self.$http.get(self.getSpeciesUrl).then((response) => {
-                    self.savedSpecies = <FitsMe.Api.SpeciesDTO[]>response.data;
-                    def.resolve(self.savedSpecies);
-                }, (err) => {
-                    self.handleError(err);
-                    def.reject(err);
-                });
+                self.$http.get(self.getSpeciesUrl)
+                    .success((response) => {
+                        self.savedSpecies = <FitsMe.Api.SpeciesDTO[]>response;
+                        def.resolve(self.savedSpecies);
+                    }).error((err) => {
+                        self.handleError(err);
+                        def.reject(err);
+                    });
 
             }
 

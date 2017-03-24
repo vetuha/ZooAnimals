@@ -14,7 +14,7 @@ namespace Zoo_Animals_Api.Validators
         }
         public override List<string> HandleValidation(Animal model)
         {
-            if (_existingAnimals != null && _existingAnimals.Any(x => x.Species.Id == model.Species.Id && x.Name == model.Name))
+            if (_existingAnimals != null && _existingAnimals.Any(x => x.SpeciesId == model.SpeciesId && x.Name == model.Name))
             {
                 ErrorsResult.Add("Multiple animals with the same name and same species not allowed!");
 

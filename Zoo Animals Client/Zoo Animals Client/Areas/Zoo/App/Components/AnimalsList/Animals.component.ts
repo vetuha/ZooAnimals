@@ -98,8 +98,10 @@
 
             modalInstance.result.then((remove) => {
                 if (remove) {
-                    _.remove(self.animals, { Id: animal.Id });
-                    self.notificationService.ShowNotification('Animal has been removed!', 'message');
+                    self.animalsService.DeleteAnimal(animal.Id).then(() => {
+                        _.remove(self.animals, { Id: animal.Id });
+                        self.notificationService.ShowNotification('Animal has been removed!', 'message');
+                    });
                 }
             });
         }
@@ -119,10 +121,17 @@
 
             modalInstance.result.then((result: AnimalDto) => {
                 if (modalParams.operation == AnimalOperationEnum.Add) {
+                    result.Species = modalParams.animal.Species;
                     self.animals.push(result);
                     self.notificationService.ShowNotification('New animal has been added successfully!', 'message');
                 } else {
-                    let index = self.animals.indexOf(result);
+                    var index = -1;
+                    for (var i = 0; i < self.animals.length; i++) {
+                        if (self.animals[i].Id == modalParams.animal.Id) {
+                            index = i;
+                            continue;
+                        }
+                    }
                     if (~index) {
                         self.animals[index] = result;
                     }
@@ -131,6 +140,8 @@
 
             });
         }
+
+        
 
     }
 

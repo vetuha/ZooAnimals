@@ -68,7 +68,8 @@
         }
 
         modifyAnimal(animal: FitsMe.Api.AnimalDTO): void {
-            this.editAnimal({ animal: animal });
+            var animalCopy = angular.copy(animal);
+            this.editAnimal({ animal: animalCopy });
         }
 
         deleteAnimal(animal: FitsMe.Api.AnimalDTO): void {

@@ -27,7 +27,7 @@ namespace Zoo_Animals_Api.Services
         public void EditAnimal(Animal modifiedAnimal)
         {
             var currentAnimal = _uow.Animals.Get(modifiedAnimal.Id);
-            currentAnimal.Species = modifiedAnimal.Species;
+            currentAnimal.SpeciesId = modifiedAnimal.SpeciesId;
             currentAnimal.Name = modifiedAnimal.Name;
             currentAnimal.YearOfBirth = modifiedAnimal.YearOfBirth;
             currentAnimal.Modified = DateTime.Now;
@@ -49,6 +49,7 @@ namespace Zoo_Animals_Api.Services
         public void RemoveAnimal(int id)
         {
             _uow.Animals.Delete(id);
+            _uow.Save();
         }
 
         public IEnumerable<Species> GetAllSpecies()
